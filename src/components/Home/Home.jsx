@@ -4,23 +4,25 @@ import HeroSlider from "../../components/HeroSlider/HeroSlider";
 
 const Home = () => {
     return (
-        <div className="relative">
-            {/* Transparent fixed Navbar (top overlay) */}
-            <Navbar />
-
-            {/* Hero slider পুরো স্ক্রিন জুড়ে; navbar উপরে ভাসবে */}
+        <>
             <HeroSlider />
-
-            {/* নিচে বাকি সেকশনগুলো */}
-            <section className="relative z-10 bg-base-100">
+            {/* Featured Listing */}
+            <section className="bg-[#F7F7F7] z-0">
                 <div className="container mx-auto px-4 py-16">
-                    <h2 className="text-2xl font-semibold">Featured Listings</h2>
-                    <p className="text-base-content/70 mt-2">
+                    <h2 className="text-2xl lg:text-4xl font-semibold text-center">Featured Listings</h2>
+                    <p className="text-base-content/70 mt-2 text-center">
                         Your next home is just a few clicks away.
                     </p>
                 </div>
             </section>
-        </div>
+
+            {/* Why Choose Us */}
+            <section className="bg-white h-52">
+                <div>
+
+                </div>
+            </section>
+        </>
     );
 };
 
