@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, EffectFade } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/effect-fade";
+import { Typewriter } from "react-simple-typewriter";
+import { Link } from "react-router-dom";
 
 import slide1 from "../../assets/slider1.jpg";
 import slide2 from "../../assets/slider2.jpg";
@@ -10,11 +12,12 @@ import slide3 from "../../assets/slider3.jpg";
 import slide4 from "../../assets/slider4.jpg";
 import slide5 from "../../assets/slider5.jpg";
 import slide6 from "../../assets/slider6.jpg";
-import { Link } from "react-router-dom";
 
 const slides = [slide1, slide2, slide3, slide4, slide5, slide6];
 
 export default function HeroSlider() {
+    const [active, setActive] = useState(0);
+
     return (
         <div className="relative">
             <Swiper
@@ -23,6 +26,7 @@ export default function HeroSlider() {
                 loop={true}
                 autoplay={{ delay: 3200, disableOnInteraction: false }}
                 className="w-full h-[65vh] md:h-[85vh] lg:h-screen"
+                onSlideChange={(swiper) => setActive(swiper.realIndex)}
             >
                 {slides.map((src, i) => (
                     <SwiperSlide key={i}>
@@ -31,13 +35,23 @@ export default function HeroSlider() {
                             <div className="absolute inset-0 bg-black/40"></div>
 
                             <div className="relative z-10 h-full flex items-center px-6 md:px-12">
-                                <div className="max-w-xl text-white">
-                                    <h1 className="text-2xl lg:text-4xl md:text-6xl font-bold leading-tight">
-                                        Find Your Dream Home
+                                <div className={`max-w-xl text-white transition-all duration-700 ${active === i ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}>
+
+                                    <h1 className="text-2xl lg:text-3xl md:text-6xl font-bold leading-tight">
+                                        <Typewriter
+                                            words={["Find Your Dream Home", "Live Where Comfort Meets Style", "Your Perfect Space Awaits"]}
+                                            loop={true}
+                                            cursor
+                                            cursorStyle="|"
+                                            typeSpeed={70}
+                                            deleteSpeed={50}
+                                            delaySpeed={2000}
+                                        />
                                     </h1>
 
                                     <p className="mt-4 text-base text-white/85 text-justify">
-                                        Step into a world of refined living - where every space is thoughtfully shaped to inspire, embrace your comfort, and feel beautifully your own. Discover homes that blend timeless elegance with warmth and character, creating not just a place to live, but a place to belong.
+                                        Step into a world of refined living - where every space is thoughtfully shaped to inspire, embrace your
+                                        comfort, and feel beautifully your own.
                                     </p>
 
                                     <div className="mt-6 flex gap-4">
