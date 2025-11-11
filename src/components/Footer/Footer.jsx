@@ -27,7 +27,7 @@ export default function Footer() {
                         />
                         <button
                             type="button"
-                            className="btn join-item w-full sm:w-auto bg-[#ff6b57] text-white border-0 hover:bg-[#ff6b57] no-animation"
+                            className="btn join-item w-full sm:w-auto bg-[#FA6509] text-white border-0  no-animation"
                         >
                             Subscribe
                         </button>

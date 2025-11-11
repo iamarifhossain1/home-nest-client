@@ -5,6 +5,12 @@ import whyBg from '../../assets/why-banner.png'
 import { FaRegHandshake } from "react-icons/fa";
 import { CiLocationOn } from "react-icons/ci";
 import { AiOutlineSafetyCertificate } from "react-icons/ai";
+import buy from '../../assets/buy.png'
+import sell from '../../assets/sell.png'
+import rent from '../../assets/rent.png'
+import { Link } from "react-router";
+import { GoArrowUpRight } from "react-icons/go";
+
 
 const Home = () => {
     return (
@@ -22,7 +28,7 @@ const Home = () => {
 
             {/* Why Choose Us */}
             <section className="bg-white py-10 lg:py-40 container mx-auto">
-                <div className="flex flex-col-reverse lg:flex-row lg:items-start justify-center gap-5 lg:gap-20 ">
+                <div className="flex flex-col-reverse lg:flex-row lg:items-center justify-center gap-5 lg:gap-20 ">
                     <div>
                         <img src={whyBg} alt="" className="w-full lg:w-96 h-full lg:h-[500px] px-4 flex justify-center lg:px-0 mx-auto" />
                     </div>
@@ -56,24 +62,50 @@ const Home = () => {
                 <div className="flex flex-col lg:flex-row justify-center gap-5 lg:gap-52 text-center mt-5 lg:mt-20">
                     <div className="space-y-4">
                         <h1 className="text-4xl font-bold">4M</h1>
-                        <p>Award Winning</p>
+                        <p className="text-gray-700">Award Winning</p>
                     </div>
                     <div className="space-y-4">
                         <h1 className="text-4xl font-bold">18K</h1>
-                        <p>Property Ready</p>
+                        <p className="text-gray-700">Property Ready</p>
                     </div>
                     <div className="space-y-4">
                         <h1 className="text-4xl font-bold">23M</h1>
-                        <p>Happy Customer</p>
+                        <p className="text-gray-700">Happy Customer</p>
                     </div>
                 </div>
             </section>
 
             {/* Help */}
             <section>
-                <div>
-                    <div>
+                <div className="mb-20">
+                    <h1 className="text-4xl text-center font-semiboldd">See how <span className="text-[#FA6509]">Home Nest</span> can help</h1>
+                    <div className="flex flex-col lg:flex-row items-center justify-center mt-20 gap-28">
+                        <div className="space-y-3">
+                            <img src={buy} alt="" className="w-16 mx-auto" />
+                            <h3 className="font-semibold text-lg text-center">Buy a property</h3>
+                            <p className="text-gray-700 text-center">Explore trusted homes and choose the <br /> one that fits your lifestyle.</p>
+                            <div className="text-center mt-5">
+                                <Link to='/allProperties'><button className="btn outline border-none bg-transparent">Find a home <GoArrowUpRight size={20}></GoArrowUpRight></button></Link>
+                            </div>
+                        </div>
 
+                        <div className="space-y-3">
+                            <img src={buy} alt="" className="w-16 mx-auto" />
+                            <h3 className="font-semibold text-lg text-center">Sell a property</h3>
+                            <p className="text-gray-700 text-center">List your property with confidence and <br /> connect with genuine buyers easily.</p>
+                            <div className="text-center mt-5">
+                                <Link to='/addProperties'><button className="btn border-none bg-black text-white py-2">Find a home <GoArrowUpRight size={20}></GoArrowUpRight></button></Link>
+                            </div>
+                        </div>
+
+                        <div className="space-y-3">
+                            <img src={buy} alt="" className="w-16 mx-auto" />
+                            <h3 className="font-semibold text-lg text-center">Buy a property</h3>
+                            <p className="text-gray-700 text-center">Explore trusted homes and choose the <br /> one that fits your lifestyle.</p>
+                            <div className="text-center mt-5">
+                                <Link to='/allProperties'><button className="btn outline border-none bg-transparent">Find a home <GoArrowUpRight size={20}></GoArrowUpRight></button></Link>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
