@@ -4,18 +4,18 @@ import logo from '../../assets/icon.png'
 import { Link } from 'react-router';
 const Login = () => {
     return (
-        <div>
+        <div className=''>
             <div className="hero min-h-screen w-full bg-cover bg-center" style={{ backgroundImage: `url(${bg})` }}>
-                <div className='flex items-center justify-center gap-52'>
+                <div className='flex flex-col lg:flex-row items-center justify-center gap-5 lg:gap-52'>
                     <div className=''>
-                        <img src={logo} alt="" className='w-24 mx-auto' />
-                        <h1 className='text-white text-4xl mt-4 font-medium'>Home Nest</h1>
+                        <img src={logo} alt="" className='w-14 lg:w-24 mx-auto mt-5 lg:mt-0' />
+                        <h1 className='text-white text-2xl lg:text-4xl mt-4 font-medium'>Home Nest</h1>
                     </div>
                     <div>
                         <div className="hero-content flex-col lg:flex-row-reverse" >
                             <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
-                                <div className="card-body p-10">
-                                    <div className='py-8 space-y-3'>
+                                <div className="card-body lg:p-10">
+                                    <div className='lg:py-8 space-y-3'>
                                         <h1 className='text-2xl lg:text-4xl'>Log in</h1>
                                         <p className='text-gray-700'>Enter your credentials and get ready to explore!</p>
                                     </div>
