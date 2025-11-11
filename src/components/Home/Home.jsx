@@ -78,32 +78,32 @@ const Home = () => {
             {/* Help */}
             <section>
                 <div className="mb-20">
-                    <h1 className="text-4xl text-center font-semiboldd">See how <span className="text-[#FA6509]">Home Nest</span> can help</h1>
-                    <div className="flex flex-col lg:flex-row items-center justify-center mt-20 gap-28">
+                    <h1 className="text-2xl lg:text-4xl text-center font-semiboldd">See how <span className="text-[#FA6509]">Home Nest</span> can help</h1>
+                    <div className="flex flex-col lg:flex-row items-center justify-center mt-5 lg:mt-20 gap-5 lg:gap-28">
                         <div className="space-y-3">
                             <img src={buy} alt="" className="w-16 mx-auto" />
                             <h3 className="font-semibold text-lg text-center">Buy a property</h3>
                             <p className="text-gray-700 text-center">Explore trusted homes and choose the <br /> one that fits your lifestyle.</p>
                             <div className="text-center mt-5">
-                                <Link to='/allProperties'><button className="btn outline border-none bg-transparent">Find a home <GoArrowUpRight size={20}></GoArrowUpRight></button></Link>
+                                <Link to='/allProperties'><button className="btn border rounded-xl py-6 px-6 border-amber-500  bg-transparent">Find a home <GoArrowUpRight size={20}></GoArrowUpRight></button></Link>
                             </div>
                         </div>
 
-                        <div className="space-y-3">
-                            <img src={buy} alt="" className="w-16 mx-auto" />
+                        <div className="bg-white shadow-xl shadow-gray-300 rounded-xl space-y-3 p-10">
+                            <img src={sell} alt="" className="w-16 mx-auto" />
                             <h3 className="font-semibold text-lg text-center">Sell a property</h3>
                             <p className="text-gray-700 text-center">List your property with confidence and <br /> connect with genuine buyers easily.</p>
                             <div className="text-center mt-5">
-                                <Link to='/addProperties'><button className="btn border-none bg-black text-white py-2">Find a home <GoArrowUpRight size={20}></GoArrowUpRight></button></Link>
+                                <Link to='/addProperties'><button className="btn rounded-xl py-6 px-6 bg-[#FA6509] text-white">Place an ad <GoArrowUpRight size={20}></GoArrowUpRight></button></Link>
                             </div>
                         </div>
 
-                        <div className="space-y-3">
-                            <img src={buy} alt="" className="w-16 mx-auto" />
-                            <h3 className="font-semibold text-lg text-center">Buy a property</h3>
+                        <div className="space-y-3 ">
+                            <img src={rent} alt="" className="w-16 mx-auto" />
+                            <h3 className="font-semibold text-lg text-center">Rent a property</h3>
                             <p className="text-gray-700 text-center">Explore trusted homes and choose the <br /> one that fits your lifestyle.</p>
                             <div className="text-center mt-5">
-                                <Link to='/allProperties'><button className="btn outline border-none bg-transparent">Find a home <GoArrowUpRight size={20}></GoArrowUpRight></button></Link>
+                                <Link to='/allProperties'><button className="btn border rounded-xl py-6 px-6 border-amber-500 bg-transparent">Find a home <GoArrowUpRight size={20}></GoArrowUpRight></button></Link>
                             </div>
                         </div>
                     </div>

@@ -2,8 +2,8 @@ import React from 'react';
 
 const AllProperties = () => {
     return (
-        <div>
-            <h1>All Properties</h1>
+        <div className='container mx-auto '>
+            <h1>All Propertise: 20</h1>
         </div>
     );
 };
