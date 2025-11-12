@@ -24,7 +24,7 @@ export default function HeroSlider() {
                 modules={[Autoplay, EffectFade]}
                 effect="fade"
                 loop={true}
-                autoplay={{ delay: 3200, disableOnInteraction: false }}
+                autoplay={{ delay: 5000, disableOnInteraction: false }}
                 className="w-full h-[65vh] md:h-[85vh] lg:h-screen"
                 onSlideChange={(swiper) => setActive(swiper.realIndex)}
             >

@@ -2,6 +2,7 @@ import React from 'react';
 import bg from '../../assets/reg-bg.jpg'
 import logo from '../../assets/icon.png'
 import { Link } from 'react-router';
+import { FaEye } from 'react-icons/fa';
 const Register = () => {
     return (
         <div className=''>
@@ -24,7 +25,10 @@ const Register = () => {
                                             <label className="label text-base">Email</label>
                                             <input type="email" className="input" placeholder="Email" name="email" />
                                             <label className="label mt-4 text-base">Password</label>
-                                            <input type="password" className="input mb-3" placeholder="Password" name="password" />
+                                            <div className='flex items-center relative'>
+                                                <input type="password" className="input mb-3" placeholder="Password" name="password" />
+                                                <FaEye className='absolute top-3.5 right-4' size={15}></FaEye>
+                                            </div>
                                             <button className="btn btn-neutral mt-4">Register</button>
                                         </fieldset>
                                     </form>
