@@ -14,6 +14,29 @@ const Navbar = () => {
 
     const [open, setOpen] = useState(false);
     const dropdownRef = useRef(null);
+
+    // 🌙 থিম স্টেট এবং টগল লজিক
+    const [theme, setTheme] = useState(localStorage.getItem('theme') || 'light')
+
+    useEffect(() => {
+        const html = document.querySelector('html');
+        // DaisyUI এবং আপনার কাস্টম CSS, দুটির জন্যই লজিক:
+        html.setAttribute("data-theme", theme); // DaisyUI এর জন্য
+
+        if (theme === 'dark') {
+            html.classList.add('dark-theme'); // আপনার কাস্টম Dark Theme ক্লাস
+        } else {
+            html.classList.remove('dark-theme');
+        }
+
+        localStorage.setItem("theme", theme);
+    }, [theme])
+
+    const handleThemeToggle = () => {
+        setTheme(theme === "light" ? "dark" : "light");
+    }
+    // 🌙 থিম লজিক শেষ
+
     useEffect(() => {
         const handleClickOutside = (e) => {
             if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
@@ -40,18 +63,7 @@ const Navbar = () => {
         }
     };
 
-    const [theme, setTheme] = useState(localStorage.getItem('theme') || 'light')
-
-    useEffect(() => {
-        const html = document.querySelector('html')
-        html.setAttribute("data-theme", theme)
-        localStorage.setItem("theme", theme)
-    }, [theme])
-
-    const handleTheme = (checked) => {
-        setTheme(checked ? "dark" : "light")
-    }
-
+    // আপনার নাম ফরম্যাটিং ফাংশনটি অপরিবর্তিত রাখা হলো
     const formatName = (rawName) => {
         if (!rawName) return 'User';
         const name = rawName.toLowerCase();
@@ -95,6 +107,7 @@ const Navbar = () => {
     const navLinks = (
         <>
             <nav className="flex flex-col lg:flex-row">
+                {/* NavLink গুলি স্বয়ংক্রিয়ভাবে text-primary কালার পাবে root থেকে */}
                 <li><NavLink to="/">Home</NavLink></li>
                 <li><NavLink to="/allProperties">All Properties</NavLink></li>
                 <li><NavLink to="/addProperties">Add Properties</NavLink></li>
@@ -107,7 +120,8 @@ const Navbar = () => {
     );
 
     return (
-        <div className="navbar bg-[#181A20] text-white lg:px-40">
+        // 👇 Navbar ব্যাকগ্রাউন্ড এবং টেক্সট কালার পরিবর্তন করা হয়েছে
+        <div className="navbar bg-secondary-section text-primary lg:px-40 transition-colors duration-300 shadow-md">
             <div className="navbar-start">
                 <div className="dropdown">
 
@@ -120,7 +134,8 @@ const Navbar = () => {
 
                     <ul
                         tabIndex={0}
-                        className="menu menu-sm dropdown-content bg-[#181A20] rounded-box z-10 mt-3 w-52 p-2 shadow">
+                        // 👇 ড্রপডাউন মেনু ব্যাকগ্রাউন্ড এবং টেক্সট কালার পরিবর্তন করা হয়েছে
+                        className="menu menu-sm dropdown-content card-bg text-primary rounded-box z-10 mt-3 w-52 p-2 shadow">
                         {navLinks}
                     </ul>
                 </div>
@@ -145,14 +160,16 @@ const Navbar = () => {
             <div className="navbar-end flex gap-10">
 
                 <button
-                    onClick={(handleTheme) => setTheme(theme === "light" ? "dark" : "light")}
+                    // 👇 onClick ফাংশনটি handleThemeToggle ব্যবহার করবে
+                    onClick={handleThemeToggle}
                     className="p-2 rounded-md cursor-pointer sm:block hidden"
                     title="Toggle Theme"
                 >
                     {theme === "light" ? (
-                        <img src={light} alt="light" className="w-6 h-6" />
+                        <img src={light2} alt="light" className="w-6 h-6" />
                     ) : (
-                        <img src={light2} alt="dark" className="w-6 h-6 brightness-150" />
+                        // Dark mode-এ আইকনের রং উজ্জ্বল করার জন্য
+                        <img src={light} alt="dark" className="w-6 h-6 brightness-150" />
                     )}
                 </button>
 
@@ -172,8 +189,9 @@ const Navbar = () => {
                                 />
 
                                 {open && (
-                                    <div className="absolute right-0 mt-2 w-80 lg:w-96 bg-white text-black rounded-md shadow-lg z-50">
-                                        <div className="p-4 border-b">
+                                    // 👇 ইউজার ড্রপডাউন ব্যাকগ্রাউন্ড এবং টেক্সট কালার পরিবর্তন করা হয়েছে
+                                    <div className="absolute right-0 mt-2 w-80 lg:w-96 card-bg text-primary rounded-md shadow-lg z-50">
+                                        <div className="p-4 border-b border-[var(--color-text-secondary)]">
                                             <div className="flex items-center gap-3">
                                                 <img
                                                     src={user.photoURL || `https://i.ibb.co.com/4RHM1zLq/avatar.png${encodeURIComponent(user.displayName || user.email || "User")}`}
@@ -184,7 +202,8 @@ const Navbar = () => {
                                                     <div className="font-semibold">
                                                         {user.displayName || formatName(user.email?.split("@")[0])}
                                                     </div>
-                                                    <div className="text-sm text-gray-600">{user.email || "No email"}</div>
+                                                    {/* text-secondary ব্যবহার করা হয়েছে */}
+                                                    <div className="text-sm text-secondary">{user.email || "No email"}</div>
                                                 </div>
                                             </div>
                                         </div>
@@ -193,7 +212,8 @@ const Navbar = () => {
                                         <div className="p-2">
                                             <button
                                                 onClick={() => { setOpen(false); handleLogout(); }}
-                                                className="w-full text-left px-3 py-2 mt-1 rounded hover:bg-gray-100"
+                                                // Dark mode-এ hover কালার ঠিক করা হয়েছে
+                                                className="w-full text-left px-3 py-2 mt-1 rounded hover:bg-secondary-section"
                                             >
                                                 Logout
                                             </button>
@@ -217,7 +237,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-
-
-
-

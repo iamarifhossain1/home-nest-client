@@ -31,3 +31,39 @@ nav a.active {
   background-color: none;
 }
 
+/* ==================================== */
+/* 🌙 Global CSS Variables for Theming */
+/* ==================================== */
+
+:root {
+  /* LIGHT THEME */
+  --color-bg-primary: #ffffff;      /* Main Page BG (White) */
+  --color-bg-secondary: #F7F7F7;    /* Section BG (Light Gray) */
+  --color-card-bg: #ffffff;         /* Card BG (White) */
+  --color-text-primary: #121212;    /* Main Text (Dark Black) */
+  --color-text-secondary: #555555;  /* Secondary Text (Gray-700 equivalent) */
+  --color-icon-bg: #F7F7F7;         /* Icon Circle BG (Light Gray) */
+  --color-shadow-light: rgba(0, 0, 0, 0.1);
+}
+
+.dark-theme {
+  /* DARK THEME */
+  --color-bg-primary: #121212;      /* Main Page BG (Dark Gray) */
+  --color-bg-secondary: #1E1E1E;    /* Section BG (Slightly Darker Gray) */
+  --color-card-bg: #282828;         /* Card BG (Elevated Darker Gray) */
+  --color-text-primary: #E0E0E0;    /* Main Text (Off-White) */
+  --color-text-secondary: #AAAAAA;  /* Secondary Text (Lighter Gray) */
+  --color-icon-bg: #1E1E1E;         /* Icon Circle BG (Matches Section BG) */
+  --color-shadow-light: rgba(255, 255, 255, 0.05); /* Lighter shadow for dark mode */
+}
+
+
+
+/* Utility Classes based on Variables */
+.bg-primary { background-color: var(--color-bg-primary); }
+.bg-secondary-section { background-color: var(--color-bg-secondary); }
+.text-primary { color: var(--color-text-primary); }
+.text-secondary { color: var(--color-text-secondary); }
+.bg-icon-circle { background-color: var(--color-icon-bg); }
+.card-bg { background-color: var(--color-card-bg); }
+
