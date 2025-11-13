@@ -1,8 +1,32 @@
-import React from 'react';
-import { Link, NavLink } from 'react-router';
+import React, { use } from 'react';
+import { Link, NavLink, useNavigate } from 'react-router';
 import logo from '../../assets/icon.png'
+import { AuthContext } from '../../contexts/AuthContext';
+import Swal from 'sweetalert2';
 
 const Navbar = () => {
+
+    const { user, logoutUser, loading } = use(AuthContext);
+    const navigate = useNavigate();
+
+
+    const handleLogout = async () => {
+        try {
+            await logoutUser();
+            navigate('/')
+            Swal.fire({
+                position: "top-center",
+                icon: "success",
+                title: "Successfully Logout",
+                showConfirmButton: false,
+                timer: 1500
+            });
+        } catch (error) {
+            console.log(error);
+
+        }
+    }
+    if (loading) return null;
 
     const navLinks = <>
         <nav className="flex flex-col lg:flex-row">
@@ -11,7 +35,9 @@ const Navbar = () => {
             <li><NavLink to="/addProperties">Add Properties</NavLink></li>
             <li><NavLink to="/myProperties">My Properties</NavLink></li>
             <li><NavLink to="/myRatings">My Ratings</NavLink></li>
-            <li><NavLink to="/register">Register</NavLink></li>
+            {!user && (
+                <li><NavLink to="/register">Register</NavLink></li>
+            )}
         </nav>
 
     </>
@@ -42,7 +68,12 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                <Link to='/login' className="btn bg-[#FA6509] shadow-none border-none text-white px-8 py-4 text-lg">Login</Link>
+                {user ? (
+                    <button onClick={handleLogout} className="btn bg-[#FA6509] shadow-none border-none text-white px-8 py-4 text-base">Logout</button>
+                ) : (
+
+                    <Link to='/login' className="btn bg-[#FA6509] shadow-none border-none text-white px-8 py-4 text-base">Login</Link>
+                )}
             </div>
         </div>
     );

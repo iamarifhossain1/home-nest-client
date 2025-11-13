@@ -23,7 +23,7 @@ export default function Footer() {
                             type="email"
                             placeholder="Your email"
                             aria-label="Email address"
-                            className="input join-item w-full bg-white text-black placeholder-black/60 border border-white/20"
+                            className="input join-item w-full bg-white text-black placeholder-black/60 "
                         />
                         <button
                             type="button"

@@ -13,6 +13,7 @@ import Login from './components/Login/Login.jsx';
 import Register from './components/Register/Register.jsx';
 import MyRatings from './pages/MyRatings.jsx';
 import AuthProvider from './contexts/AuthProvider.jsx';
+import PrivateRoute from './Routes/PrivateRoute.jsx';
 
 const router = createBrowserRouter([
   {
@@ -31,17 +32,23 @@ const router = createBrowserRouter([
 
       {
         path: '/addProperties',
-        Component: AddProperties
+        element: <PrivateRoute>
+          <AddProperties></AddProperties>
+        </PrivateRoute>
       },
 
       {
         path: '/myProperties',
-        Component: MyProperties
+        element: <PrivateRoute>
+          <MyProperties></MyProperties>
+        </PrivateRoute>
       },
 
       {
         path: '/myRatings',
-        Component: MyRatings
+        element: <PrivateRoute>
+          <MyRatings></MyRatings>
+        </PrivateRoute>
       },
 
       {
