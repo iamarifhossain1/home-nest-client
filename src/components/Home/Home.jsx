@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import HeroSlider from "../../components/HeroSlider/HeroSlider";
 import whyBg from "../../assets/why-banner.png";
 import { FaRegHandshake } from "react-icons/fa";
@@ -10,6 +10,12 @@ import rent from "../../assets/rent.png";
 import { Link } from "react-router-dom";
 import { GoArrowUpRight } from "react-icons/go";
 import { motion } from "framer-motion";
+import Loading from "../../components/Loading/Loading";
+import houses from '../../assets/houses.png'
+import apartment from '../../assets/apatments.png'
+import office from '../../assets/office.png'
+import villa from '../../assets/villa.png'
+import townhome from '../../assets/townhome.png'
 
 // ===== animation variants =====
 const fadeUp = {
@@ -29,6 +35,36 @@ const floatCard = {
 };
 
 const Home = () => {
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+
+        const handleLoaded = () => {
+            setLoading(false);
+        };
+
+
+        const fallback = setTimeout(() => {
+            setLoading(false);
+        }, 3000); // 3s fallback - প্রয়োজনে পরিবর্তন করতে পারো
+
+        if (document.readyState === "complete") {
+
+            setLoading(false);
+        } else {
+            window.addEventListener("load", handleLoaded);
+        }
+
+        return () => {
+            window.removeEventListener("load", handleLoaded);
+            clearTimeout(fallback);
+        };
+    }, []);
+
+    if (loading) {
+        return <Loading />;
+    }
+
     return (
         <>
             <HeroSlider />
@@ -106,7 +142,77 @@ const Home = () => {
                 </motion.div>
             </section>
 
-            {/* Help */}
+            {/* Explore Types */}
+
+            <section className="container mx-auto mb-10 lg:mb-28">
+                <h1 className="text-center text-gray-700 text-2xl lg:text-4xl font-semibold">Explore Apartment Types</h1>
+                <div className="flex flex-col lg:flex-row justify-center gap-10 mt-5 lg:mt-14 items-center">
+                    <div className="card bg-base-100 w-60 shadow-lg">
+                        <figure>
+                            <img className="w-72"
+                                src={houses}
+                                alt="" />
+                        </figure>
+                        <div className="card-body">
+                            <h2 className="card-title">Houses</h2>
+                            <p className="text-gray-700">7 Properties</p>
+                        </div>
+                    </div>
+
+                    <div className="card bg-base-100 w-60 shadow-lg">
+                        <figure>
+                            <img className="w-72"
+                                src={houses}
+                                alt="" />
+                        </figure>
+                        <div className="card-body">
+                            <h2 className="card-title">Apartments</h2>
+                            <p className="text-gray-700">3 Properties</p>
+                        </div>
+                    </div>
+
+                    <div className="card bg-base-100 w-60 shadow-lg">
+                        <figure>
+                            <img className="w-72"
+                                src={houses}
+                                alt="" />
+                        </figure>
+                        <div className="card-body">
+                            <h2 className="card-title">Office</h2>
+                            <p className="text-gray-700">4 Properties</p>
+                        </div>
+                    </div>
+
+                    <div className="card bg-base-100 w-60 shadow-lg">
+                        <figure>
+                            <img className="w-72"
+                                src={houses}
+                                alt="" />
+                        </figure>
+                        <div className="card-body">
+                            <h2 className="card-title">Villa</h2>
+                            <p className="text-gray-700">4 Properties</p>
+                        </div>
+                    </div>
+
+                    <div className="card bg-base-100 w-60 shadow-lg">
+                        <figure>
+                            <img className="w-72"
+                                src={houses}
+                                alt="" />
+                        </figure>
+                        <div className="card-body">
+                            <h2 className="card-title">Town Home</h2>
+                            <p className="text-gray-700">2 Properties</p>
+                        </div>
+                    </div>
+
+
+
+                </div>
+            </section>
+
+            {/* How Home Nest Help */}
             <section>
                 <div className="mb-20">
                     <motion.h1
@@ -157,4 +263,3 @@ const Home = () => {
 };
 
 export default Home;
-

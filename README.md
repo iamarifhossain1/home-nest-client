@@ -1,16 +1,40 @@
-# React + Vite
+🏡 Home Nest – Real Estate Property Platform
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Welcome to Home Nest, a modern real-estate web application designed to help users browse, explore, and find their ideal properties for rent or purchase.
+This platform ensures a smooth, fast, and user-friendly experience with an elegant UI and real-time authentication.
 
-Currently, two official plugins are available:
+🔗 Live Website: https://home-nest-a10.netlify.app/
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+⭐ Features
 
-## React Compiler
+🔐 User Authentication System
+Secure login and registration using email/password and Google authentication.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+🏘 Browse Properties Easily
+Users can explore different properties with detailed information including price, location, category, and short description.
 
-## Expanding the ESLint configuration
+📱 Responsive Modern UI
+Completely mobile, tablet, and desktop friendly — built using Tailwind & DaisyUI for a polished and modern layout.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+🔍 Property Details Page
+Every property includes images, price, location, and detailed descriptions for better user clarity.
+
+🚀 Fast Navigation & Smooth UX
+Implemented React Router for seamless page transitions and fast-loading user experience.
+
+🎨 Clean & Minimal Design
+Professionally designed UI with consistent color palette and typography for brand identity.
+
+📦 Tech Stack
+
+React.js
+
+React Router
+
+Firebase Authentication
+
+Tailwind CSS + DaisyUI
+
+SweetAlert2 for alerts
+
+Netlify for deployment

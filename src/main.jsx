@@ -14,6 +14,7 @@ import Register from './components/Register/Register.jsx';
 import MyRatings from './pages/MyRatings.jsx';
 import AuthProvider from './contexts/AuthProvider.jsx';
 import PrivateRoute from './Routes/PrivateRoute.jsx';
+import ErrorPage from './components/ErrorPage/ErrorPage.jsx';
 
 const router = createBrowserRouter([
   {
@@ -58,6 +59,10 @@ const router = createBrowserRouter([
       {
         path: '/register',
         Component: Register
+      },
+      {
+        path: "*",
+        element: <ErrorPage></ErrorPage>
       }
 
     ]

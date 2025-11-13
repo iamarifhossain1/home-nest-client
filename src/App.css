@@ -1,8 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
-@import "tailwindcss";
-@plugin "daisyui";
+ @import "tailwindcss";
+ @plugin "daisyui" {
+   themes: light --default, dark --prefersdark;
+ }
 
+ @custom-variant data-theme-dark (&:where([data-theme="dark"], [data-theme="dark"] *));
 
 @plugin "daisyui/theme" {
   name: "light";
@@ -10,6 +13,7 @@
   primary: blue;
   secondary: teal;
 }
+
 
 
 @layer base {
@@ -26,3 +30,4 @@ nav a.active {
   border-bottom: 2px solid #FF6306;
   background-color: none;
 }
+
