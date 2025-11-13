@@ -1,19 +1,21 @@
 import React from 'react';
 import Navbar from '../Navbar/Navbar';
-import { Outlet } from 'react-router';
+import { Outlet, useMatches } from 'react-router-dom';
 import Footer from '../Footer/Footer';
 
 const Root = () => {
+    const matches = useMatches();
+    const hideLayout = matches.some(match => match.handle && match.handle.hideLayout);
+
     return (
-        // সমস্ত অ্যাপ্লিকেশন কন্টেন্টকে আপনার কাস্টম থিম ভ্যারিয়েবল দ্বারা 
-        // তৈরি ব্যাকগ্রাউন্ড এবং টেক্সট ক্লাসে র‍্যাপ করা হলো। 
-        // `transition-colors duration-300` যোগ করা হলো smooth transitioning-এর জন্য।
         <div className='bg-primary text-primary flex flex-col min-h-screen transition-colors duration-300'>
-            <Navbar></Navbar>
+            {!hideLayout && <Navbar />}
+
             <main className='flex-grow'>
-                <Outlet></Outlet>
+                <Outlet />
             </main>
-            <Footer></Footer>
+
+            {!hideLayout && <Footer />}
         </div>
     );
 };
