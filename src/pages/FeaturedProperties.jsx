@@ -9,6 +9,8 @@ const containerVariants = {
     }
 };
 
+const API_BASE_URL = 'https://home-nest-server-fp6l8gc6y-arif-hossains-projects-a41d4c7a.vercel.app';
+
 const FeaturedProperties = ({ getFeaturedProperties }) => {
     const propertiesData = use(getFeaturedProperties);
     console.log(propertiesData);
