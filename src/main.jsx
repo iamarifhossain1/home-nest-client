@@ -2,8 +2,7 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.jsx'
-import { createBrowserRouter } from "react-router";
-import { RouterProvider } from "react-router/dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Root from './components/Root/Root.jsx';
 import Home from './components/Home/Home.jsx';
 import AllProperties from './pages/AllProperties.jsx';
@@ -18,7 +17,34 @@ import ErrorPage from './components/ErrorPage/ErrorPage.jsx';
 import Properties from './pages/Properties.jsx';
 import FeaturedProperties from './pages/FeaturedProperties.jsx';
 import PropertiesDetails from './pages/PropertiesDetails.jsx';
-import { param } from 'framer-motion/client';
+
+
+export const propertiesLoader = async ({ request }) => {
+
+  const url = new URL(request.url);
+  const searchString = url.search; // E.g., ?sort=price-asc&search=Gulshan
+
+
+  let apiUrl = 'http://localhost:3000/properties';
+
+
+  if (searchString) {
+    apiUrl = `${apiUrl}${searchString}`;
+  }
+
+  console.log("API URL for properties (Sort & Search):", apiUrl);
+
+  try {
+    const response = await fetch(apiUrl);
+    if (!response.ok) {
+      throw new Error('Failed to fetch properties with sorting/searching.');
+    }
+    return await response.json();
+  } catch (error) {
+    console.error("Error in propertiesLoader:", error);
+    return [];
+  }
+};
 
 const router = createBrowserRouter([
   {
@@ -32,7 +58,7 @@ const router = createBrowserRouter([
 
       {
         path: '/allProperties',
-        loader: () => fetch('http://localhost:3000/properties'),
+        loader: propertiesLoader,
         Component: AllProperties
       },
       {
