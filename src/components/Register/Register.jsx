@@ -75,6 +75,27 @@ const Register = () => {
         signInWithGoogle()
             .then(result => {
                 const user = result.user;
+                console.log(user);
+
+                const newUser = {
+                    name: user.displayName,
+                    emai: user.email,
+                    photo: user.photoURL
+                }
+
+                fetch('http://localhost:3000/users', {
+                    method: "POST",
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(newUser)
+                })
+                    .then(response => response.json())
+                    .then(data => {
+                        console.log('data after user save', data);
+
+                    })
+
                 navigate(`${location.state ? location.state : "/"}`)
                 Swal.fire({
                     position: "top-center",

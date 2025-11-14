@@ -16,6 +16,7 @@ import apartment from '../../assets/apatments.png'
 import office from '../../assets/office.png'
 import villa from '../../assets/villa.png'
 import townhome from '../../assets/townhome.png'
+import FeaturedProperties from "../../pages/FeaturedProperties";
 
 
 const fadeUp = {
@@ -33,6 +34,10 @@ const floatCard = {
     show: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.55 } },
     hover: { y: -4, scale: 1.01, transition: { duration: 0.18 } },
 };
+
+const getFeaturedProperties = fetch('http://localhost:3000/featured-properties')
+    .then(response => response.json())
+
 
 const Home = () => {
     const [loading, setLoading] = useState(true);
@@ -69,32 +74,7 @@ const Home = () => {
         <>
             <HeroSlider />
 
-            {/* Featured Listing */}
-
-            <section className="bg-secondary-section z-0">
-                <div className="container mx-auto px-4 py-16">
-                    <motion.h2
-
-                        className="text-2xl lg:text-4xl font-semibold text-center text-primary"
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true, amount: 0.4 }}
-                        transition={{ duration: 0.6 }}
-                    >
-                        Featured Listings
-                    </motion.h2>
-                    <motion.p
-
-                        className="text-secondary mt-2 text-center"
-                        initial={{ opacity: 0, y: 16 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true, amount: 0.4 }}
-                        transition={{ duration: 0.6, delay: 0.05 }}
-                    >
-                        Your next home is just a few clicks away.
-                    </motion.p>
-                </div>
-            </section>
+            <FeaturedProperties getFeaturedProperties={getFeaturedProperties}></FeaturedProperties>
 
             {/* Why Choose Us */}
 
