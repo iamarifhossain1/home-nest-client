@@ -15,6 +15,10 @@ import MyRatings from './pages/MyRatings.jsx';
 import AuthProvider from './contexts/AuthProvider.jsx';
 import PrivateRoute from './Routes/PrivateRoute.jsx';
 import ErrorPage from './components/ErrorPage/ErrorPage.jsx';
+import Properties from './pages/Properties.jsx';
+import FeaturedProperties from './pages/FeaturedProperties.jsx';
+import PropertiesDetails from './pages/PropertiesDetails.jsx';
+import { param } from 'framer-motion/client';
 
 const router = createBrowserRouter([
   {
@@ -28,7 +32,15 @@ const router = createBrowserRouter([
 
       {
         path: '/allProperties',
+        loader: () => fetch('http://localhost:3000/properties'),
         Component: AllProperties
+      },
+      {
+        path: 'propertiesDetails/:id',
+        loader: ({ params }) => fetch(`http://localhost:3000/properties/${params.id}`),
+        element: <PrivateRoute>
+          <PropertiesDetails></PropertiesDetails>
+        </PrivateRoute>
       },
 
       {
