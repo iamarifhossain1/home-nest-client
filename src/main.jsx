@@ -19,8 +19,8 @@ import FeaturedProperties from './pages/FeaturedProperties.jsx';
 import PropertiesDetails from './pages/PropertiesDetails.jsx';
 
 
-
-const API_BASE_URL = 'https://home-nest-server-fp6l8gc6y-arif-hossains-projects-a41d4c7a.vercel.app';
+// Vercel-এর স্থায়ী ডোমেইন ব্যবহার করা হচ্ছে, যা 401 Unauthorized ত্রুটি দূর করবে।
+const API_BASE_URL = 'https://home-nest-server-sand.vercel.app';
 
 export const propertiesLoader = async ({ request }) => {
 

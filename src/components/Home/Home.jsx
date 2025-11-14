@@ -35,7 +35,7 @@ const floatCard = {
     hover: { y: -4, scale: 1.01, transition: { duration: 0.18 } },
 };
 
-const getFeaturedProperties = fetch('http://localhost:3000/featured-properties')
+const getFeaturedProperties = fetch('https://home-nest-server-sand.vercel.app')
     .then(response => response.json())
 
 
