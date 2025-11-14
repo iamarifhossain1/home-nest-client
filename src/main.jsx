@@ -19,13 +19,16 @@ import FeaturedProperties from './pages/FeaturedProperties.jsx';
 import PropertiesDetails from './pages/PropertiesDetails.jsx';
 
 
+
+const API_BASE_URL = 'https://home-nest-server-fp6l8gc6y-arif-hossains-projects-a41d4c7a.vercel.app';
+
 export const propertiesLoader = async ({ request }) => {
 
   const url = new URL(request.url);
-  const searchString = url.search; // E.g., ?sort=price-asc&search=Gulshan
+  const searchString = url.search;
 
 
-  let apiUrl = 'http://localhost:3000/properties';
+  let apiUrl = `${API_BASE_URL}/properties`;
 
 
   if (searchString) {
@@ -63,7 +66,7 @@ const router = createBrowserRouter([
       },
       {
         path: 'propertiesDetails/:id',
-        loader: ({ params }) => fetch(`http://localhost:3000/properties/${params.id}`),
+        loader: ({ params }) => fetch(`${API_BASE_URL}/properties/${params.id}`),
         element: <PrivateRoute>
           <PropertiesDetails></PropertiesDetails>
         </PrivateRoute>
