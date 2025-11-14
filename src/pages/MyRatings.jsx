@@ -3,7 +3,7 @@ import React, { useState, useEffect, use } from 'react';
 import { AuthContext } from '../contexts/AuthContext';
 import { FaCalendarDays, FaTag, FaStar, FaRegStar } from 'react-icons/fa6'; // FaStar, FaRegStar import kora holo
 
-const API_BASE_URL = 'http://localhost:3000';
+const API_BASE_URL = 'https://home-nest-server-fp6l8gc6y-arif-hossains-projects-a41d4c7a.vercel.app';
 
 
 const StarDisplay = ({ rating, size = 18 }) => {

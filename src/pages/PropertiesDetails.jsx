@@ -4,7 +4,7 @@ import { Link, useLoaderData, useParams } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import { AuthContext } from '../contexts/AuthContext';
 
-const API_BASE_URL = 'http://localhost:3000';
+const API_BASE_URL = 'https://home-nest-server-fp6l8gc6y-arif-hossains-projects-a41d4c7a.vercel.app';
 
 const StarDisplay = ({ rating, size = 18 }) => {
     const fullStars = Math.floor(rating);
@@ -64,7 +64,7 @@ const RatingsAndReviews = ({ propertyId, initialPropertyData }) => {
         }
     }, [propertyId]);
 
-    // Review Submission
+
     const handleReviewSubmit = async (e) => {
         e.preventDefault();
 

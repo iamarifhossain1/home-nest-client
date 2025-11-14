@@ -14,7 +14,7 @@ import {
 import Swal from 'sweetalert2';
 import { AuthContext } from '../contexts/AuthContext';
 
-const API_BASE_URL = 'http://localhost:3000';
+const API_BASE_URL = 'https://home-nest-server-fp6l8gc6y-arif-hossains-projects-a41d4c7a.vercel.app';
 
 const MyProperties = () => {
     const { user } = use(AuthContext);
