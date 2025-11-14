@@ -68,7 +68,7 @@ const AllProperties = () => {
 
     return (
         <div className='container mx-auto px-4'>
-            <h1 className='text-center text-2xl lg:text-4xl text-gray-700 mt-10'>All Properties</h1>
+            <h1 className='text-center text-2xl lg:text-4xl text-gray-700 mt-10'>Find Your Perfect Place</h1>
 
 
             <div className='flex flex-col lg:flex-row items-center justify-between mt-12 gap-4'>

@@ -67,11 +67,11 @@ const Properties = ({ properties }) => {
                                 <span>{formatPrice(price)}</span>
                             </div>
 
-                            <Link to={`/propertiesDetails/${_id}`}
+                            <button
                                 className="btn px-3 py-1 rounded-md bg-[#FA6509] text-white hover:bg-[#e85b00] transition-colors"
                             >
                                 View Details
-                            </Link>
+                            </button>
                         </div>
                     </div>
 
