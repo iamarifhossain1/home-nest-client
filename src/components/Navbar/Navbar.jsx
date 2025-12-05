@@ -1,5 +1,6 @@
 import React from 'react';
-import { NavLink } from 'react-router';
+import { Link, NavLink } from 'react-router';
+import logo from '../../assets/icon.png'
 
 const Navbar = () => {
 
@@ -8,12 +9,14 @@ const Navbar = () => {
 
         <li><NavLink to='/'>Home</NavLink></li>
         <li><NavLink to='/allProperties'>All Properties</NavLink></li>
-        <li><NavLink to='/login'>Login</NavLink></li>
-        <li><NavLink to='/registration'>Register</NavLink></li>
+        <li><NavLink to='/allProperties'>Add Properties</NavLink></li>
+        <li><NavLink to='/allProperties'>My Properties</NavLink></li>
+        <li><NavLink to='/allProperties'>My Ratings</NavLink></li>
+
     </>
 
     return (
-        <div className="navbar bg-base-100 shadow-sm">
+        <div className="navbar bg-base-100 lg:px-20 shadow-sm">
             <div className="navbar-start">
                 <div className="dropdown">
                     <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -25,7 +28,7 @@ const Navbar = () => {
                         {Links}
                     </ul>
                 </div>
-                <a className="btn btn-ghost text-xl">daisyUI</a>
+                <a href='/' className="text-xl"><img src={logo} className='w-10' alt="" /></a>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
@@ -33,7 +36,7 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                <a className="btn">Button</a>
+                <Link to='/login'>Login /  Register</Link>
             </div>
         </div>
     );

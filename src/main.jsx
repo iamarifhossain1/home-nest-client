@@ -11,6 +11,9 @@ import AuthProvider from './contexts/AuthProvider.jsx';
 import Login from './components/Login/Login.jsx';
 import AllProperties from './AllProperties/AllProperties.jsx';
 import Registration from './components/Registration/Registration.jsx';
+import AddProperties from './AddProperties/AddProperties.jsx';
+import MyProperties from './MyProperties/MyProperties.jsx';
+import MyRatings from './MyRatings/MyRatings.jsx';
 
 const router = createBrowserRouter([
   {
@@ -24,6 +27,18 @@ const router = createBrowserRouter([
       {
         path: 'allProperties',
         Component: AllProperties,
+      },
+      {
+        path: '/addProperties',
+        Component: AddProperties
+      },
+      {
+        path: '/myProperties',
+        Component: MyProperties
+      },
+      {
+        path: '/ratings',
+        Component: MyRatings
       },
       {
         path: '/login',
