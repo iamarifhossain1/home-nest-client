@@ -27,17 +27,23 @@ const Login = () => {
 
     return (
 
-        <div >
-            <div>
-                <button onClick={() => setActiveForm('login')}>Login</button>
-                <button onClick={() => setActiveForm('registration')}>Register</button>
-            </div>
-            <div>
-                <form>
-                    {activeForm === 'login'(
-                        <h1>login form</h1>
-                    )} :
-                </form>
+        <div className="hero bg-base-200 min-h-screen">
+            <div className="hero-content flex-col lg:flex-row-reverse">
+                <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
+                    <div className="card-body">
+                        <h1 className="text-5xl font-bold">Register</h1>
+                        <form >
+                            <fieldset className="fieldset">
+                                <label className="label">Email</label>
+                                <input type="email" name='email' className="input" placeholder="Email" />
+                                <label className="label">Password</label>
+                                <input type="password" name='password' className="input" placeholder="Password" />
+                                <div><a className="link link-hover">Forgot password?</a></div>
+                                <button className="btn btn-neutral mt-4">Registration</button>
+                            </fieldset>
+                        </form>
+                    </div>
+                </div>
             </div>
         </div>
     );
