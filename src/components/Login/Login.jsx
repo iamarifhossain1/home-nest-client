@@ -4,7 +4,6 @@ import { useLocation, useNavigate } from 'react-router';
 
 const Login = () => {
 
-    const [activeForm, setActiveForm] = useState('login');
 
     const { signInUser, user } = use(AuthContext)
 
@@ -39,7 +38,9 @@ const Login = () => {
                                 <label className="label">Password</label>
                                 <input type="password" name='password' className="input" placeholder="Password" />
                                 <div><a className="link link-hover">Forgot password?</a></div>
+                                <h1>don't have any account ?</h1>
                                 <button className="btn btn-neutral mt-4">Registration</button>
+
                             </fieldset>
                         </form>
                     </div>
