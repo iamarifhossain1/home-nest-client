@@ -30,7 +30,7 @@ const Login = () => {
             <div className="hero-content flex-col lg:flex-row-reverse">
                 <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
                     <div className="card-body">
-                        <h1 className="text-5xl font-bold">Register</h1>
+                        <h1 className="text-5xl font-bold">Login</h1>
                         <form >
                             <fieldset className="fieldset">
                                 <label className="label">Email</label>
@@ -39,7 +39,7 @@ const Login = () => {
                                 <input type="password" name='password' className="input" placeholder="Password" />
                                 <div><a className="link link-hover">Forgot password?</a></div>
                                 <h1>don't have any account ?</h1>
-                                <button className="btn btn-neutral mt-4">Registration</button>
+                                <button className="btn btn-neutral mt-4">Login</button>
 
                             </fieldset>
                         </form>
